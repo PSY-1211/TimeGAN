@@ -87,12 +87,20 @@ def real_data_loading (data_name, seq_len):
   Returns:
     - data: preprocessed data.
   """  
-  assert data_name in ['stock','energy']
+  assert data_name in ['stock','energy', 'telecom_25', 'telecom_50', 'telecom_75', 'telecom_100']
   
   if data_name == 'stock':
     ori_data = np.loadtxt('data/stock_data.csv', delimiter = ",",skiprows = 1)
   elif data_name == 'energy':
     ori_data = np.loadtxt('data/energy_data.csv', delimiter = ",",skiprows = 1)
+  elif data_name == 'telecom_25':
+    ori_data = np.loadtxt('data/telecomm_25.csv',delimiter=',',skiprows = 1)  
+  elif data_name == 'telecom_50':
+    ori_data = np.loadtxt('data/telecomm_50.csv',delimiter=',',skiprows = 1)
+  elif data_name == 'telecom_75':
+    ori_data = np.loadtxt('data/telecomm_75.csv',delimiter=',',skiprows = 1)
+  elif data_name == 'telecom_100':
+    ori_data = np.loadtxt('data/telecomm_100.csv',delimiter=',',skiprows = 1)
         
   # Flip the data to make chronological data
   ori_data = ori_data[::-1]
